@@ -8,7 +8,8 @@ local core_plugins = {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
-    lazy = false
+    lazy = false,
+    config = function() require("wvim.core.catppuccin").setup() end
 },
 {
     "nvim-telescope/telescope.nvim",
@@ -59,6 +60,10 @@ local core_plugins = {
     version = "4.4.7",
     dependencies = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"},
     config = function() require("wvim.core.noice").setup() end
+},
+{
+    "rcarriga/nvim-notify",
+    config = function() require("wvim.core.notify").setup() end
 }
 }
 return core_plugins

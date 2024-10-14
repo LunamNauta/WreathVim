@@ -31,5 +31,6 @@ function module.load_defaults()
     for k, v in pairs(module.g) do
         vim.g[k] = v
     end
+    vim.diagnostic.config{float = {border = "rounded"}}
 end
 return module
