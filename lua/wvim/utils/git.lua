@@ -7,7 +7,7 @@ function module.UploadConfig()
     vim.cmd(git_command .. " commit -m \"" .. commit_msg .. "\"")
     vim.cmd(git_command .. " push origin main")
 end
-function module.UpdateConfig()
+function module.DownloadConfig()
     local git_dir = vim.fn.stdpath("config")
     local git_command = "!git -C " .. git_dir
     vim.cmd(git_command .. " fetch origin")

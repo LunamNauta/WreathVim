@@ -7,8 +7,8 @@ module.usercmds = {
         command = utils_git.UploadConfig
     },
     {
-        name = "UpdateConfig",
-        command = utils_git.UpdateConfig
+        name = "DownloadConfig",
+        command = utils_git.DownloadConfig
     }
 }
 function module.load_defaults()
