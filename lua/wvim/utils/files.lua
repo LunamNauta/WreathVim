@@ -1,5 +1,7 @@
-local module = {}
-function module.JoinPath(...)
+wvim = wvim or {}
+wvim.files = wvim.files or {}
+
+function wvim.files.JoinPath(...)
     local out = ""
     local args = {...}
     for i, subPath in ipairs(args) do
@@ -10,4 +12,3 @@ function module.JoinPath(...)
     end
     return out
 end
-return module

@@ -1,14 +1,12 @@
-local utils_git = require("wvim.utils.git")
-
 local module = {}
 module.usercmds = {
     {
         name = "UploadConfig",
-        command = utils_git.UploadConfig
+        command = wvim.git.UploadConfig
     },
     {
         name = "DownloadConfig",
-        command = utils_git.DownloadConfig
+        command = wvim.git.DownloadConfig
     }
 }
 function module.load_defaults()
