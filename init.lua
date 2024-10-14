@@ -1,1 +1,1 @@
-require("wvim.init")
+require("wvim"):init()
