@@ -1,0 +1,13 @@
+local module = {}
+
+function module:init()
+    wvim = vim.deepcopy(require("wvim.config.defaults"))
+
+    local settings = require("wvim.config.settings")
+    settings.load_defaults()
+
+    local keymaps = require("wvim.config.keymaps")
+    keymaps.load_defaults()
+end
+
+return module

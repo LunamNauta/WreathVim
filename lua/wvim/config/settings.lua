@@ -15,6 +15,15 @@ module.g = {
     mapleader = " ",
     maplocalloader = "\\"
 }
+if wvim.is_windows then module.opt = vim.tbl_deep_extend("force", module.opt, {
+    shell = "pwsh",
+    shellxquote = "",
+    shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command",
+    shellquote = "",
+    shellpipe = "| Out-File -Encoding UTF8 %s",
+    shellredir = "| Out-File -Encoding UTF8 %s"
+}) else module.opt = vim.tbl_deep_extend("force", module.opt, {shell = "bash"}) end
+
 function module.load_defaults()
 	for k, v in pairs(module.opt) do
 		vim.opt[k] = v

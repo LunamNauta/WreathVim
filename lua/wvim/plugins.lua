@@ -1,7 +1,11 @@
 local core_plugins = {
 {
     "neovim/nvim-lspconfig",
-    dependencies = {"mason-lspconfig.nvim"},
+    dependencies = {
+        "williamboman/mason.nvim",
+        "hrsh7th/nvim-cmp"
+    },
+    config = function() require("wvim.core.lspconfig").setup() end
 },
 {
     "catppuccin/nvim",
@@ -15,7 +19,7 @@ local core_plugins = {
     config = function() require("wvim.core.telescope").setup() end
 },
 {
-    "nvim-telescope/telescope-fzf-native.nvim", 
+    "nvim-telescope/telescope-fzf-native.nvim",
     build = "mingw32-make",
 },
 {
@@ -24,8 +28,43 @@ local core_plugins = {
 },
 {
     "williamboman/mason.nvim",
-    dependencies = {"williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig"},
+    dependencies = {"williamboman/mason-lspconfig.nvim"},
     config = function() require("wvim.core.mason").setup() end
+},
+{
+    "nvim-lualine/lualine.nvim",
+    dependencies = {"nvim-tree/nvim-web-devicons"},
+    event = "VeryLazy",
+    config = true
+},
+{
+    "romgrk/barbar.nvim",
+    dependencies = {"lewis6991/gitsigns.nvim", "nvim-tree/nvim-web-devicons"},
+    event = "VeryLazy",
+    config = function() require("wvim.core.barbar").setup() end
+},
+{
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip"
+    },
+    lazy = false,
+    config = function() require("wvim.core.cmp").setup() end
+},
+{
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    version = "4.4.7",
+    dependencies = {
+	    "MunifTanjim/nui.nvim",
+		"rcarriga/nvim-notify"
+	},
+    config = function() require("wvim.core.noice").setup() end
 }
 }
 return core_plugins
