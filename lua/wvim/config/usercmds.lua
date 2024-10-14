@@ -5,6 +5,10 @@ module.usercmds = {
     {
         name = "UploadConfig",
         command = utils_git.UploadConfig
+    },
+    {
+        name = "UpdateConfig",
+        command = utils_git.UpdateConfig
     }
 }
 function module.load_defaults()
