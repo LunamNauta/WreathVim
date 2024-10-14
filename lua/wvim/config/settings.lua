@@ -1,5 +1,5 @@
 local module = {}
-module.settings = {
+module.opt = {
 	clipboard = "unnamedplus",
 	cmdheight = 0,
 	number = true,
@@ -11,9 +11,16 @@ module.settings = {
 	fileencoding = "utf-8",
 	termguicolors = true
 }
-function module.load_settings()
-	for k, v in pairs(module.settings) do
+module.g = {
+    mapleader = " ",
+    maplocalloader = "\\"
+}
+function module.load_defaults()
+	for k, v in pairs(module.opt) do
 		vim.opt[k] = v
 	end
+    for k, v in pairs(module.g) do
+        vim.g[k] = v
+    end
 end
 return module
