@@ -1,10 +1,7 @@
 local core_plugins = {
 {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        "williamboman/mason.nvim",
-        "hrsh7th/nvim-cmp"
-    },
+    dependencies = {"williamboman/mason.nvim", "hrsh7th/nvim-cmp"},
     config = function() require("wvim.core.lspconfig").setup() end
 },
 {
@@ -20,7 +17,7 @@ local core_plugins = {
 },
 {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "mingw32-make",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
 },
 {
     "nvim-treesitter/nvim-treesitter",
@@ -60,10 +57,7 @@ local core_plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     version = "4.4.7",
-    dependencies = {
-	    "MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify"
-	},
+    dependencies = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"},
     config = function() require("wvim.core.noice").setup() end
 }
 }
