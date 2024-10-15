@@ -20,7 +20,7 @@ module.opts = {
     })
 }
 function module.setup()
-    cmp.setup(opts)
+    cmp.setup(module.opts)
     cmp.setup.cmdline({"/", "?"}, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {name = "buffer"}
