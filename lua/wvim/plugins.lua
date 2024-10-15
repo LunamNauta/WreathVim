@@ -22,11 +22,13 @@ local core_plugins = {
 },
 {
     "nvim-treesitter/nvim-treesitter",
-    config = function() require("wvim.core.treesitter").setup() end
+    lazy = false,
+    config = function() require("wvim.core.treesitter").setup() end,
 },
 {
     "williamboman/mason.nvim",
     dependencies = {"williamboman/mason-lspconfig.nvim"},
+    lazy = false,
     config = function() require("wvim.core.mason").setup() end
 },
 {
