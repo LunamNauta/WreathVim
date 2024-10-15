@@ -10,9 +10,20 @@ module.opts = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
     },
-    mapping = {
-        ["<CR>"] = cmp.mapping.confirm({select = true})
-    },
+	mapping = cmp.mapping.preset.insert({
+		["<TAB>"] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, {"i", "s"}),
+		["<C-SPACE>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({select = false, behavior = cmp.ConfirmBehavior.Replace})
+	}),
     sources = cmp.config.sources({
         {name = "nvim_lsp"},
         {name = "luasnip"},
